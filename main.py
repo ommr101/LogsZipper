@@ -1,11 +1,11 @@
 from multiprocessing import Process, Queue
 
-from file_info import FileInfo
+from file_info import LogFileInfo
 from traverser import DirectoryTraverser
 from zipper import Zipper
 
-input_dir = r"D:\My Files\Desktop\omer\projects\lottery\.git"
-output_dir = r"C:\Users\User\PycharmProjects\LogsZipper\temp"
+input_dir = r"C:\Users\User\PycharmProjects\LogsZipper\test\input"
+output_dir = r"C:\Users\User\PycharmProjects\LogsZipper\test\ouptput"
 
 
 def traverser_worker(queue: Queue):
@@ -17,7 +17,7 @@ def traverser_worker(queue: Queue):
 def zipper_worker(queue: Queue):
     zipper: Zipper = Zipper(output_dir)
     while True:
-        file_info: FileInfo = queue.get()
+        file_info: LogFileInfo = queue.get()
         zipper.zip(file_info)
 
 
