@@ -13,15 +13,15 @@ class FileInfo(ABC):
 
     @staticmethod
     @abstractmethod
-    def regex_pattern(self):
+    def regex_pattern() -> str:
         raise NotImplementedError
 
     @abstractmethod
-    def get_date(self):
+    def get_date(self) -> str:
         raise NotImplementedError
 
     @abstractmethod
-    def get_zipped_name(self):
+    def get_zipped_name(self) -> str:
         raise NotImplementedError
 
 
@@ -32,13 +32,13 @@ class LogFileInfo(FileInfo):
         _, self._year, self._month, self._day, self._hour, _ = os.path.splitext(name)[0].split("-")
 
     @staticmethod
-    def regex_pattern():
+    def regex_pattern() -> str:
         return r"systemlog-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}\.log$"
 
-    def get_date(self):
+    def get_date(self) -> str:
         return '-'.join([self._year, self._month, self._day])
 
-    def get_zipped_name(self):
+    def get_zipped_name(self) -> str:
         return '-'.join(['systemlog', self.get_date(), self._hour])
 
 
