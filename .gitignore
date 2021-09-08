@@ -137,5 +137,5 @@ dmypy.json
 cython_debug/
 
 .idea/
-test/output/*
+test/output/**
 !test/output/
