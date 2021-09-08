@@ -13,3 +13,5 @@ E.g
 ```
 python main.py test\input test\output 3
 ```
+
+* if you are to use this run command, make sure to first create the output directory in the test directory
